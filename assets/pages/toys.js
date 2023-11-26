@@ -9,6 +9,15 @@ const optionsVue = {
         return {
             petshop: [],
             categorias: [],
+            modalVisible: false,
+            prodJugeteria: {
+                categoria: '',
+                descripcion: '',
+                disponibles: '',
+                imagen: '',
+                precio: '',
+                producto: '',
+            }
         }
     },
     beforeCreate() {
@@ -23,7 +32,21 @@ const optionsVue = {
             .catch(error => console.log(error))
     },
     methods: {
-
+        showModal(producto) {
+            this.prodJugeteria = producto;
+            this.modalVisible = true;
+        },
+        cerrarModal() {
+            this.prodJugeteria = {
+                categoria: '',
+                descripcion: '',
+                disponibles: '',
+                imagen: '',
+                precio: '',
+                producto: '',
+            },
+                this.modalVisible = false;
+        },
     }
 }
 console.log("final")
