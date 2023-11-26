@@ -31,6 +31,11 @@ const optionsVue = {
             })
             .catch(error => console.log(error))
     },
+    computed: {
+        disponibilidad() {
+            return this.prodJugeteria.disponibles < 5 ? '¡Últimas unidades!' : '';
+        }
+    },
     methods: {
         showModal(producto) {
             this.prodJugeteria = producto;
