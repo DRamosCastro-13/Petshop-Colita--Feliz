@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="images/Logo veterinaria pet shop azul y blanco.png" type="image/x-icon">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Colita Feliz - Contacto</title>
+</head>
+<body>
+    <header class="w-full grid sm:grid-cols-2 justify-center sm:align-middle align-middle px-2 bg-[#F94C10] min-h-fit border-b-2 border-slate-500/30">
+        <div class="grid justify-items-center mb-4 sm:justify-self-start pl-4 sm:mb-0">
+            <img class="w-[5rem] h-[5rem] md:w-[3rem] md:h-[3rem]" src="./assets/Logo veterinaria pet shop azul y blanco.png" alt="Logo">
+            <h2 class="text-xs font-semibold italic text-beige">Lo mejor para tu peludo</h2>
+        </div>
+            <nav class="grid grid-cols-1 sm:grid-cols-4 justify-items-center w-full sm:w-8/12 sm:justify-self-end gap-3 sm:gap-1 mb-3  text-beige font-semibold md:mb-0 sm:self-center">
+                <a href="#" class="hover:text-blue">Inicio</a>
+                <a href="#" class="hover:text-blue">Farmacia</a>
+                <a href="#" class="hover:text-blue">Juguetería</a>
+                <a href="#" class="hover:text-blue">Contacto</a>
+            </nav>
+        </div>
+    </header>
+    <div id="app">
+    <main class="flex flex-wrap  place-content-center bg-[#083D77]">
+        <div>
+            <img src="./assets/contacto colita feliz.png" alt="banner-contacto">
+        </div>
+
+        <section
+            class="flex flex-col items-center md:flex-row md:gap-10 bg-gradient-to-r from-sky-500 to-indigo-500 border-solid border-2 md:w-1/2 md:m-4 md:p-8 rounded-lg">
+            <div class="flex w-96 place-self-center">
+                <img class="rounded shadow-xl  shadow-indigo-500/40" src="./assets/form img.png" alt="form-picture">
+            </div>
+            <div class="flex flex-col">
+                <h1 class="text-center font-extrabold text-white text-4xl">BIENVENIDO!</h1>
+                <form action=""></form>
+
+                <input type="text" id="name" name="name" placeholder="Nombre"
+                    class="p-1 m-3 rounded w-64 shadow-lg  shadow-indigo-500/40  ">
+
+                <input type="text" id="apellido" name="apellido" placeholder="Apellidos"
+                    class="p-1 m-3 rounded w-64 shadow-lg  shadow-indigo-500/40 ">
+
+                <input type="number" id="celular" name="celular" placeholder="celular"
+                    class="p-1 m-3 rounded w-64 shadow-lg  shadow-indigo-500/40 ">
+                <label for="mascota" class="text-lg text-white font-bold p-1 m-3 rounded w-64 ">¿Qué tipo de mascota
+                    tienes?</label>
+                <div class="flex gap-1">
+                    <img class="w-10" src="./assets/dogface.png" alt="dog-icon">
+                    <input type="radio" id="perro" name="mascota" value="perro">
+                </div>
+                <div class="flex gap-1">
+                    <img class="w-10" src="./assets/cat-face.png" alt="cat-icon">
+                    <input type="radio" id="gato" name="mascota" value="gato">
+                </div>
+                <div class="flex gap-1">
+                    <img class="w-10" src="./assets/hamsterface.png" alt="hamster-icon">
+                    <input type="radio" id="otro" name="mascota" value="otro">
+                </div>
+                <textarea name="text" id="message" cols="30" rows="6" placeholder="Dejanos tus inquietudes aquí"
+                    class="p-1 m-3 rounded w-64 shadow-lg  shadow-indigo-500/40 "></textarea>
+                <button v-on:click="mostrarModal">
+                    <input type="submit"
+                        class=" bg-sky-900 text-white font-bold  p-1 m-1 rounded shadow-lg  shadow-indigo-500/40 hover:bg-gray-900">
+                </button>
+            </div>
+        </section>
+        <section class="flex md:justify-end items-center bg-no-repeat w-full bg-[#FFC736] h-96 bg-contain"
+            style="background-image: url('./assets/Pet\ Shop\ Store\ Dog\ Instagram\ Story\ \(1\).png');">
+            <article class="flex mb-12 items-end flex-col md:flex-row">
+                <iframe class="w-[200px] h-36  m-2 md:w-[500px] md:h-72 flex"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.2432185162206!2d-58.40580882626773!3d-34.59801079740836!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcca9158e82c41%3A0xafb5fe117a2c5a52!2sParaguay%202334%2C%20C1121ABL%20CABA%2C%20Argentina!5e0!3m2!1ses-419!2sco!4v1700886987162!5m2!1ses-419!2sco"
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <h2
+                    class="font-lilita text-4xl md:text-7xl md:w-80 text-center self-center md:mx-16 text-white bg-gradient-to-r from-[#E94E1B] to-yellow rounded-md shadow-lg">
+                    SIEMPRE ESTAMOS CERCA DE TI</h2>
+            </article>
+        </section>
+    </main>
+    <footer class="min-h-[20rem] sm:min-h-[30rem] w-full bg-amber-100 grid-cols-1 gap-5 flex flex-col items-center py-4 md:grid md:grid-cols-4 md:justify-items-center md:min-h-[20rem]">
+        <div>
+            <div>
+                <h3 class="font-semibold text-center">¡Síguennos!</h3>
+                <div class="flex mt-2">
+                    <a href="https://www.facebook.com/"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="45" height="45" viewBox="0 0 32 32">
+                        <path d="M15,3C8.373,3,3,8.373,3,15c0,6.016,4.432,10.984,10.206,11.852V18.18h-2.969v-3.154h2.969v-2.099c0-3.475,1.693-5,4.581-5 c1.383,0,2.115,0.103,2.461,0.149v2.753h-1.97c-1.226,0-1.654,1.163-1.654,2.473v1.724h3.593L19.73,18.18h-3.106v8.697 C22.481,26.083,27,21.075,27,15C27,8.373,21.627,3,15,3z"></path>
+                    </svg>
+                    </a>
+                    <a href="https://www.instagram.com/"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="50" height="45" viewBox="0 0 32 32">
+                        <path d="M 11.46875 5 C 7.917969 5 5 7.914063 5 11.46875 L 5 20.53125 C 5 24.082031 7.914063 27 11.46875 27 L 20.53125 27 C 24.082031 27 27 24.085938 27 20.53125 L 27 11.46875 C 27 7.917969 24.085938 5 20.53125 5 Z M 11.46875 7 L 20.53125 7 C 23.003906 7 25 8.996094 25 11.46875 L 25 20.53125 C 25 23.003906 23.003906 25 20.53125 25 L 11.46875 25 C 8.996094 25 7 23.003906 7 20.53125 L 7 11.46875 C 7 8.996094 8.996094 7 11.46875 7 Z M 21.90625 9.1875 C 21.402344 9.1875 21 9.589844 21 10.09375 C 21 10.597656 21.402344 11 21.90625 11 C 22.410156 11 22.8125 10.597656 22.8125 10.09375 C 22.8125 9.589844 22.410156 9.1875 21.90625 9.1875 Z M 16 10 C 12.699219 10 10 12.699219 10 16 C 10 19.300781 12.699219 22 16 22 C 19.300781 22 22 19.300781 22 16 C 22 12.699219 19.300781 10 16 10 Z M 16 12 C 18.222656 12 20 13.777344 20 16 C 20 18.222656 18.222656 20 16 20 C 13.777344 20 12 18.222656 12 16 C 12 13.777344 13.777344 12 16 12 Z"></path>
+                        </svg>
+                    </a>
+                    <a href="https://twitter.com/"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="40" height="40" viewBox="0 0 50 50">
+                        <path d="M 11 4 C 7.1456661 4 4 7.1456661 4 11 L 4 39 C 4 42.854334 7.1456661 46 11 46 L 39 46 C 42.854334 46 46 42.854334 46 39 L 46 11 C 46 7.1456661 42.854334 4 39 4 L 11 4 z M 11 6 L 39 6 C 41.773666 6 44 8.2263339 44 11 L 44 39 C 44 41.773666 41.773666 44 39 44 L 11 44 C 8.2263339 44 6 41.773666 6 39 L 6 11 C 6 8.2263339 8.2263339 6 11 6 z M 13.085938 13 L 22.308594 26.103516 L 13 37 L 15.5 37 L 23.4375 27.707031 L 29.976562 37 L 37.914062 37 L 27.789062 22.613281 L 36 13 L 33.5 13 L 26.660156 21.009766 L 21.023438 13 L 13.085938 13 z M 16.914062 15 L 19.978516 15 L 34.085938 35 L 31.021484 35 L 16.914062 15 z"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div>
+            <ul class="list-none leading-loose">
+                <li class="font-semibold">Nosotros</li>
+                <li class="hover:text-orange">Contacto</li>
+                <li class="hover:text-orange">Historia</li>
+                <li class="hover:text-orange">Misión</li>
+            </ul>
+        </div>
+        <div>
+            <ul class="list-none leading-loose">
+                <li class="font-semibold">Productos</li>
+                <li class="hover:text-orange">Farmacia</li>
+                <li class="hover:text-orange">Juguetería</li>
+                <li class="hover:text-orange">Productos</li>
+            </ul>
+        </div>
+        <div>
+            <ul class="list-none leading-loose">
+                <li class="font-semibold">Servicios</li>
+                <li class="hover:text-orange">Horarios</li>
+                <li class="hover:text-orange">Peluquería</li>
+                <li class="hover:text-orange">Guardería</li>
+            </ul>
+        </div>
+   </footer>
+    <div v-show='modal' class="w-full bg-slate-400/40 h-screen fixed inset-0 z-10 flex justify-center items-center">
+        <section class="w-96 h-96 bg-gradient-to-r from-[#E94E1B] to-yellow absolute rounded-xl">
+            <button  class=" bg-[#ED1C24] text-white font-bold  p-1 m-1 shadow-lg hover:bg-black  absolute top-1 right-1 rounded-lg" v-on:click="cerrarModal">
+                Cerrar</button>
+                <img class="rounded-xl" src="./assets/foto formulario.png" alt="foto-formulario">
+        </section>
+    </div>
+    </div>
+    <script type="module" src="./assets/tailwind.config.extension.js"></script>
+    <script type="module" src="./assets/tailwind.config.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="./contacto.js"></script>
+</body>
+</html>

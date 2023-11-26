@@ -7,6 +7,9 @@ export const theme = {
             'yellow' : '#F4D35E',
             'orange' : '#F94C10',
             'red' : '#F95738'
+        },
+        fontFamily: {
+            'lilita' : ['Lilita One']
         }
     }
 };
