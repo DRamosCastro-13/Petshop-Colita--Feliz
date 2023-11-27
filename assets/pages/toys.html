@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colita Feliz</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-blue">
+    <div id="app">
+        <header
+            class="w-full grid sm:grid-cols-2 justify-center sm:align-middle align-middle px-2 bg-[#F94C10] min-h-fit border-b-2 border-slate-500/30">
+            <div class="grid justify-items-center mb-4 sm:justify-self-start pl-4 sm:mb-0">
+                <img class="w-[5rem] h-[5rem] md:w-[3rem] md:h-[3rem]"
+                    src="../Logo veterinaria pet shop azul y blanco.png" alt="Logo">
+                <h2 class="text-xs font-semibold italic text-beige">Lo mejor para tu peludo</h2>
+            </div>
+            <nav class="grid grid-cols-1 sm:grid-cols-5 justify-items-center w-full sm:w-8/12 sm:justify-self-end gap-3 sm:gap-1 mb-3  text-beige font-semibold md:mb-0 sm:self-center">
+                <a href="/index.html" class="hover:text-blue">Inicio</a>
+                <a href="./farmacia.html" class="hover:text-blue">Farmacia</a>
+                <a href="./toys.html" class="hover:text-blue">Juguetería</a>
+                <a href="#" class="hover:text-blue">Contacto</a>
+                <a href="./carrito.html" class="hover:text-blue">Mi carrito</a>
+            </nav>
+        </header>
+        <main class="min-h-screen w-full ">
+            <div>
+                <img src="../bannerjugueteria.png" alt="">
+            </div>
+            <div class="flex flex-wrap gap-6 justify-center mt-6 mb-6">
+                <template v-if="categorias.length > 0" v-for="producto in categorias">
+                    <div class="w-[350px] flex flex-col">
+                        <div class="p-6 bg-orange rounded-xl shadow group">
+                            <a class="block mb-2" href="#">
+                                <div class="relative overflow-hidden">
+                                    <div class="mb-5 overflow-hidden">
+                                        <img class="object-cover w-full mx-auto transition-all rounded-xl h-72 group-hover:scale-110"
+                                            v-bind:src="producto.imagen" alt="">
+                                    </div>
+                                    <div class="absolute flex flex-col top-4 right-4">
+                                        <div class="flex items-center">
+                                            <div
+                                                class="relative flex items-center justify-center p-3 mb-3 text-beige transition-all translate-x-20 bg-orange rounded group-hover:translate-x-0 wishlist hover:bg-blue-600 group">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                                    fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                                                    <path
+                                                        d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z" />
+                                                </svg>
+                                            </div>
+                                        </div>
+
+                                        <div class="flex items-center">
+                                            <div
+                                                class="relative flex items-center justify-center p-3 mb-3 text-beige transition-all translate-x-20 bg-orange rounded group-hover:translate-x-0 wishlist hover:bg-blue-600 group">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                                    fill="currentColor" class="bi bi-cart2 " viewBox="0 0 16 16">
+                                                    <path
+                                                        d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z" />
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <h3 class="mb-2 text-xl font-bold text-beige">{{producto.producto}}</h3>
+                                <p class="text-sm font-bold text-blue-300 line-clamp-5 text-white">
+                                    {{producto.descripcion}}</p>
+                            </a>
+                            <div class="flex justify-center">
+                                <button @click="showModal(producto)"
+                                    class=" w-[5rem] h-[2rem] rounded-lg  bg-[#F94C10]  text-beige hover:text-blue ">Ver
+                                    Mas...
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </div>
+
+        </main>
+        <footer
+            class="min-h-[20rem] sm:min-h-[30rem] w-full bg-amber-100 grid-cols-1 gap-5 flex flex-col items-center py-4 md:grid md:grid-cols-4 md:justify-items-center md:min-h-[20rem]">
+            <div>
+                <div>
+                    <h3 class="font-semibold text-center">¡Síguennos!</h3>
+                    <div class="flex mt-2">
+                        <a href="https://www.facebook.com/"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                width="45" height="45" viewBox="0 0 32 32">
+                                <path
+                                    d="M15,3C8.373,3,3,8.373,3,15c0,6.016,4.432,10.984,10.206,11.852V18.18h-2.969v-3.154h2.969v-2.099c0-3.475,1.693-5,4.581-5 c1.383,0,2.115,0.103,2.461,0.149v2.753h-1.97c-1.226,0-1.654,1.163-1.654,2.473v1.724h3.593L19.73,18.18h-3.106v8.697 C22.481,26.083,27,21.075,27,15C27,8.373,21.627,3,15,3z">
+                                </path>
+                            </svg>
+                        </a>
+                        <a href="https://www.instagram.com/"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                width="50" height="45" viewBox="0 0 32 32">
+                                <path
+                                    d="M 11.46875 5 C 7.917969 5 5 7.914063 5 11.46875 L 5 20.53125 C 5 24.082031 7.914063 27 11.46875 27 L 20.53125 27 C 24.082031 27 27 24.085938 27 20.53125 L 27 11.46875 C 27 7.917969 24.085938 5 20.53125 5 Z M 11.46875 7 L 20.53125 7 C 23.003906 7 25 8.996094 25 11.46875 L 25 20.53125 C 25 23.003906 23.003906 25 20.53125 25 L 11.46875 25 C 8.996094 25 7 23.003906 7 20.53125 L 7 11.46875 C 7 8.996094 8.996094 7 11.46875 7 Z M 21.90625 9.1875 C 21.402344 9.1875 21 9.589844 21 10.09375 C 21 10.597656 21.402344 11 21.90625 11 C 22.410156 11 22.8125 10.597656 22.8125 10.09375 C 22.8125 9.589844 22.410156 9.1875 21.90625 9.1875 Z M 16 10 C 12.699219 10 10 12.699219 10 16 C 10 19.300781 12.699219 22 16 22 C 19.300781 22 22 19.300781 22 16 C 22 12.699219 19.300781 10 16 10 Z M 16 12 C 18.222656 12 20 13.777344 20 16 C 20 18.222656 18.222656 20 16 20 C 13.777344 20 12 18.222656 12 16 C 12 13.777344 13.777344 12 16 12 Z">
+                                </path>
+                            </svg>
+                        </a>
+                        <a href="https://twitter.com/"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                width="40" height="40" viewBox="0 0 50 50">
+                                <path
+                                    d="M 11 4 C 7.1456661 4 4 7.1456661 4 11 L 4 39 C 4 42.854334 7.1456661 46 11 46 L 39 46 C 42.854334 46 46 42.854334 46 39 L 46 11 C 46 7.1456661 42.854334 4 39 4 L 11 4 z M 11 6 L 39 6 C 41.773666 6 44 8.2263339 44 11 L 44 39 C 44 41.773666 41.773666 44 39 44 L 11 44 C 8.2263339 44 6 41.773666 6 39 L 6 11 C 6 8.2263339 8.2263339 6 11 6 z M 13.085938 13 L 22.308594 26.103516 L 13 37 L 15.5 37 L 23.4375 27.707031 L 29.976562 37 L 37.914062 37 L 27.789062 22.613281 L 36 13 L 33.5 13 L 26.660156 21.009766 L 21.023438 13 L 13.085938 13 z M 16.914062 15 L 19.978516 15 L 34.085938 35 L 31.021484 35 L 16.914062 15 z">
+                                </path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <ul class="list-none leading-loose">
+                    <li class="font-semibold">Nosotros</li>
+                    <li class="hover:text-orange">Contacto</li>
+                    <li class="hover:text-orange">Historia</li>
+                    <li class="hover:text-orange">Misión</li>
+                </ul>
+            </div>
+            <div>
+                <ul class="list-none leading-loose">
+                    <li class="font-semibold">Productos</li>
+                    <li class="hover:text-orange">Farmacia</li>
+                    <li class="hover:text-orange">Juguetería</li>
+                    <li class="hover:text-orange">Productos</li>
+                </ul>
+            </div>
+            <div>
+                <ul class="list-none leading-loose">
+                    <li class="font-semibold">Servicios</li>
+                    <li class="hover:text-orange">Horarios</li>
+                    <li class="hover:text-orange">Peluquería</li>
+                    <li class="hover:text-orange">Guardería</li>
+                </ul>
+            </div>
+        </footer>
+        <div v-if="modalVisible"
+            class=" w-full  h-screen  bg-slate-400/40  fixed inset-0 z-10 flex justify-center items-center ">
+            <div
+                class="w-11/12 h-auto md:w-3/4 md:h-3/4 flex justify-center items-center  rounded-2xl bg-orange shadow-lg  text-beige  hover:text-blue">
+                <div class=" w-full h-full flex flex-end flex-row-reverse ">
+                    <button v-on:click="cerrarModal" class=" w-10 h-10 mt-1 mr-2 ">
+                        <img src="../huella.png" class="bg-beige p-1 rounded-lg" alt="cerrarModal">
+                    </button>
+                    <template v-if="prodJugeteria.producto">
+                        <div class="flex flex-col-reverse md:flex-row w-[90%] h-[90%] justify-center items-center mt-3">
+                            <div class="order-2 md:order-1  md:w-1/2">
+                                <img class="object-cover w-40 md:w-full rounded-xl h-40 md:h-80 shadow-2xl" v-bind:src="prodJugeteria.imagen" v-bind:alt="prodJugeteria.producto">
+                            </div>
+                            <div class="order-1 md:order-2 w-full md:w-1/2 flex flex-col justify-center items-start pl-4">
+                                <h3 class="mb-2 text-sm lg:text-lg font-bold text-white">{{prodJugeteria.producto}}</h3>
+                                <h4 class="mb-2 text-sm lg:text-base font-bold text-white">Precio ${{prodJugeteria.precio}}</h4>
+                                <div v-if="prodJugeteria.disponibles < 5" class="mb-2 text-sm lg:text-base font-bold text-red-500">
+                                    ¡Últimas unidades!
+                                </div>
+                                <div v-else class="mb-2 text-sm lg:text-base font-bold text-white">
+                                    Cantidad Disponible: {{prodJugeteria.disponibles}} unidades
+                                </div>
+                                
+                                <p class="text-xs lg:text-sm font-bold text-blue-300 text-white">{{prodJugeteria.descripcion}}</p>
+                                <div class="flex mt-3 mb-2 md:ml-auto md:mt-4">
+                                        <button @click="agregarAlCarrito(prodJugeteria)" class="p-1 rounded-lg bg-[#F94C10] text-beige hover:text-blue text-xs md:text-sm ">Agregar al carrito</button>
+                                    </a>
+                                    <a href="URL_DE_TU_PAGINA_DE_CORAZON" class="ml-3">
+                                        <button @click="agregarAlCarrito(prodJugeteria)" class="p-1 rounded-lg bg-[#F94C10] text-beige hover:text-blue text-xs md:text-sm ">Agregar a favoritos</button>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </template>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="./carrito.js"></script>
+    <script type="module" src="../tailwind.config.extension.js"></script>
+    <script type="module" src="../tailwind.config.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script type="module" src="./toys.js"></script>
+
+
+
+
+</body>
+
+</html>
