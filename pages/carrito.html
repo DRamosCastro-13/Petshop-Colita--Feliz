@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="./assets/Logo veterinaria pet shop azul y blanco.png" type="image/x-icon">
+    <link rel="icon" href="../assets/Logo veterinaria pet shop azul y blanco.png" type="image/x-icon">
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Colita Feliz - Home</title>
 </head>
@@ -44,7 +44,7 @@
                         <div class="flex flex-col justify-between ml-4 flex-grow">
                             <span class="font-bold text-sm">{{ item.producto }}</span>
                             <span class="text-red-500 text-xs">{{ item.marca }}</span>
-                            <a @click="removeItem(index)" class="font-semibold hover:text-red-500 text-gray-500 text-xs">Quitar</a>
+                            <button @click="removeItem(item._id)" class="font-semibold hover:text-red-500 text-gray-500 text-xs">Quitar</button>
                         </div>
                     </div>
                     <span class="text-center w-1/5 font-semibold text-sm">1</span>
@@ -82,7 +82,7 @@
                 <div class="border-t mt-8">
                     <div class="flex font-semibold justify-between py-6 text-sm uppercase">
                         <span>Precio final</span>
-                        <span>{{ total }}</span>
+                        <span>{{ "$" + totalPrice.toLocaleString() }}</span>
                     </div>
                     <button class="bg-orange font-semibold hover:bg-red py-3 text-sm text-white uppercase w-full">Completar compra</button>
                 </div>

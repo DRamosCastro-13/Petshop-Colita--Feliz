@@ -30,6 +30,10 @@ const app = createApp({
                this.id = this.data.map(data => data._id)
                this.estaEnCarrito = JSON.parse(localStorage.getItem('carrito')) || [];
                this.carritoPrint = this.estaEnCarrito.map(item => this.data.find(product => product._id == item));
+               this.data = data.map(product => ({
+                ...product,
+                price: Number(product.precio),
+                quantity: 1}));
 
                console.log(this.carritoPrint)
 
@@ -40,11 +44,8 @@ const app = createApp({
       totalItems() {
         return this.estaEnCarrito.reduce((total, item) => total + parseInt(item.quantity), 0);
       },
-      totalPrice(item) {
-        for(let i = 0; i < this.estaEnCarrito.length; i++){
-          return this.estaEnCarrito[i].price
-        }
-        
+      totalPrice() {
+        return this.carritoPrint.reduce((total, producto) => total + producto.precio * 1, 0);
       },
       total() {
         return this.estaEnCarrito.reduce((total, producto) => total + producto.precio, 0);
@@ -58,6 +59,7 @@ const app = createApp({
       },
       removeItem(index) {
         this.estaEnCarrito.splice(index, 1);
+        this.carritoPrint = this.estaEnCarrito;
       },
       addToCart(product) {
         const cart = this.getCart();
@@ -84,7 +86,7 @@ const app = createApp({
       },
       removeFromCart(index) {
         this.estaEnCarrito.splice(index, 1);
-        this.saveCart(this.estaEnCarrito);
+        this.carritoPrint = this.estaEnCarrito;
       },
       saveCart(cart) {
         localStorage.setItem('cart', JSON.stringify(cart));
