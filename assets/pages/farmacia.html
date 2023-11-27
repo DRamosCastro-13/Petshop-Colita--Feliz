@@ -145,30 +145,42 @@
                     <template v-if="produfarmacia.producto">
                         <div class="flex flex-col-reverse md:flex-row w-[90%] h-[90%] justify-center items-center mt-3">
                             <div class="order-2 md:order-1  md:w-1/2">
-                                <img class="object-cover w-40 md:w-full rounded-xl h-40 md:h-80 shadow-2xl" v-bind:src="produfarmacia.imagen" v-bind:alt="produfarmacia.producto">
+                                <img class="object-cover w-40 md:w-full rounded-xl h-40 md:h-80 shadow-2xl"
+                                    v-bind:src="produfarmacia.imagen" v-bind:alt="produfarmacia.producto">
                             </div>
-                            <div class="order-1 md:order-2 w-full md:w-1/2 flex flex-col justify-center items-start pl-4 bg-gray-400/40 rounded-lg p-1">
+                            <div
+                                class="order-1 md:order-2 w-full md:w-1/2 flex flex-col justify-center items-start pl-4 bg-gray-400/40 rounded-lg p-1">
                                 <h3 class="mb-2 text-sm lg:text-lg font-bold text-white">{{produfarmacia.producto}}</h3>
-                                <h4 class="mb-2 text-sm lg:text-base font-bold text-white">Precio ${{produfarmacia.precio}}</h4>
-                                <div v-if="produfarmacia.disponibles < 5" class="mb-2 text-sm lg:text-base font-bold text-red-500">
+                                <h4 class="mb-2 text-sm lg:text-base font-bold text-white">Precio
+                                    ${{produfarmacia.precio}}</h4>
+                                <div v-if="produfarmacia.disponibles < 5 && produfarmacia.disponibles > 0"
+                                    class="mb-2 text-sm lg:text-base font-bold text-red-500">
                                     ¡Últimas unidades!
+                                </div>
+                                <div v-else-if="produfarmacia.disponibles == 0"
+                                    class="mb-2 text-sm lg:text-base font-bold text-red-500">
+                                    ¡Agotado!
                                 </div>
                                 <div v-else class="mb-2 text-sm lg:text-base font-bold text-white">
                                     Cantidad Disponible: {{produfarmacia.disponibles}} unidades
                                 </div>
-                                
-                                <p class="text-xs lg:text-sm font-bold text-blue-300 text-white">{{produfarmacia.descripcion}}</p>
+                                <p class="text-xs lg:text-sm font-bold text-blue-300 text-white">
+                                    {{produfarmacia.descripcion}}</p>
                                 <div class="flex mt-3 mb-2 md:ml-auto md:mt-4">
                                     <a href="URL_DE_TU_PAGINA_DE_COMPRA">
-                                        <button @click="agregarAlCarrito(produfarmacia)" class="p-1 rounded-lg bg-[#F94C10] text-beige hover:text-blue text-xs md:text-sm ">Agregar al carrito</button>
+                                        <button @click="agregarAlCarrito(produfarmacia)"
+                                            class="p-1 rounded-lg bg-[#F94C10] text-beige hover:text-blue text-xs md:text-sm ">Agregar
+                                            al carrito</button>
                                     </a>
                                     <a href="URL_DE_TU_PAGINA_DE_CORAZON" class="ml-3">
-                                        <button @click="agregarAlCarrito(produfarmacia)" class="p-1 rounded-lg bg-[#F94C10] text-beige hover:text-blue text-xs md:text-sm ">Agregar a favoritos</button>
+                                        <button @click="agregarAlCarrito(produfarmacia)"
+                                            class="p-1 rounded-lg bg-[#F94C10] text-beige hover:text-blue text-xs md:text-sm ">Agregar
+                                            a favoritos</button>
                                     </a>
                                 </div>
                             </div>
                         </div>
-                        
+
                     </template>
                 </div>
             </div>
