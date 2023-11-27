@@ -21,6 +21,7 @@
                 <a href="../pages/farmacia.html" class="hover:text-blue">Farmacia</a>
                 <a href="#" class="hover:text-blue">Juguetería</a>
                 <a href="../pages/contacto.html" class="hover:text-blue">Contacto</a>
+                <a href="../pages/carrito.html" class="hover:text-blue">Mi carrito</a>
             </nav>
     </header>
         <main class="min-h-screen w-full ">
@@ -80,7 +81,7 @@
             <div
                 class="w-11/12 h-auto md:w-3/4 md:h-3/4 flex justify-center items-center  rounded-2xl bg-beige shadow-lg relative text-blue hover:text-orange">
                 <div class=" w-full h-full flex flex-end flex-row-reverse ">
-                    <button v-on:click="cerrarModal" class=" mt-1 mr-2 absolute ">
+                    <button v-on:click="cerrarModal" class="  w-10 h-10 mt-1 mr-2 ">
                         <img src="../assets/huella.png" class="bg-beige p-1 rounded-lg" alt="cerrarModal">
                     </button>
                     <template v-if="prodJugeteria.producto">
@@ -105,12 +106,14 @@
                                 
                                 <p class="text-xs lg:text-sm font-bold text-blue-300 text-blue">{{prodJugeteria.descripcion}}</p>
                                 <div class="flex mt-3 mb-2 md:ml-auto md:mt-4 gap-x-2">
-                                    <a href="URL_DE_TU_PAGINA_DE_CORAZON" class="ml-3">
-                                        <button @click="agregarAlCarrito(prodJugeteria)" class="p-1 rounded-lg bg-[#ED7D31] text-white hover:text-blue text-xs md:text-sm ">Agregar a favoritos</button>
-                                    </a>
-                                    <a href="URL_DE_TU_PAGINA_DE_COMPRA">
-                                        <button @click="agregarAlCarrito(prodJugeteria)" class="p-1 rounded-lg bg-[#ED7D31] text-white hover:text-blue text-xs md:text-sm ">Agregar al carrito</button>
-                                    </a>
+                                       
+                                        <!-- <button @click="agregarAlCarrito(prodJugeteria._id)" class="p-1 rounded-lg bg-orange text-white hover:text-blue text-xs md:text-sm ">Agregar a favoritos
+                                            <template v-if="estaEnCarrito.includes(prodJugeteria._id)">
+                                        </button> -->
+                                    
+                                   
+                                        <button @click="agregarAlCarrito(prodJugeteria._id)" class="p-1 rounded-lg bg-orange text-white hover:text-blue text-xs md:text-sm ">Agregar al carrito</button>
+                                    
     
                                 </div>
                             </div>

@@ -21,6 +21,7 @@
                 <a href="#" class="hover:text-blue">Farmacia</a>
                 <a href="../pages/toys.html" class="hover:text-blue">Juguetería</a>
                 <a href="../pages/contacto.html" class="hover:text-blue">Contacto</a>
+                <a href="../pages/carrito.html" class="hover:text-blue">Mi carrito</a>
             </nav>
     </header>
         <main class="min-h-screen w-full ">
@@ -155,16 +156,15 @@
                                 <p class="text-xs lg:text-sm font-bold text-blue-300 text-blue">
                                     {{produfarmacia.descripcion}}</p>
                                 <div class="flex mt-3 mb-2 md:ml-auto md:mt-4">
-                                    <a href="URL_DE_TU_PAGINA_DE_COMPRA">
-                                        <button @click="agregarAlCarrito(produfarmacia)"
+
+                                        <button @click="agregarAlCarrito(produfarmacia._id)"
                                             class="p-1 rounded-lg bg-[#F94C10] text-white hover:text-blue text-xs md:text-sm ">Agregar
                                             al carrito</button>
-                                    </a>
-                                    <a href="URL_DE_TU_PAGINA_DE_CORAZON" class="ml-3">
-                                        <button @click="agregarAlCarrito(produfarmacia)"
+                                    
+                                        <!-- <button @click="agregarAlCarrito(produfarmacia._id)"
                                             class="p-1 rounded-lg bg-[#F94C10] text-white hover:text-blue text-xs md:text-sm ">Agregar
-                                            a favoritos</button>
-                                    </a>
+                                            a favoritos</button> -->
+                                    
                                 </div>
                             </div>
                         </div>

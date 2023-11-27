@@ -12,6 +12,8 @@ const optionsVue = {
             farmacia: [],
             jugueteria: [],
             modalVisible: false,
+            estaEnCarrito: false,
+            id: '',
             produfarmacia: {
                 categoria: '',
                 descripcion: '',
@@ -33,6 +35,9 @@ const optionsVue = {
                 console.log("categorias", this.categorias)
                 this.farmacia = this.petshop.filter(petshop => petshop.categoria == "farmacia")
                 console.log("farmacia", this.farmacia)
+                this.id = this.petshop.map(petshop => petshop._id)
+                console.log('this.id', this.id)
+                this.estaEnCarrito = JSON.parse(localStorage.getItem('carrito')) || [];
             })
             .catch(error => console.log(error))
     },
@@ -41,6 +46,23 @@ const optionsVue = {
             this.produfarmacia = producto;
             this.modalVisible = true;
         },
+        agregarAlCarrito(id) {
+            //const productoEnCarrito = this.carrito.find(item => item.id === producto.id);
+      
+            if (this.estaEnCarrito.includes(id)) {
+                this.estaEnCarrito.splice(this.estaEnCarrito.indexOf(id), 1);
+            } else {
+              this.estaEnCarrito.push(id);
+                /*{
+                id: producto.id,
+                nombre: producto.nombre,
+                precio: producto.precio,
+                cantidad: 1,
+              }*/
+            }
+            // Emite un evento personalizado para notificar al carrito
+            localStorage.setItem('carrito', JSON.stringify(this.estaEnCarrito));
+          },
         cerrarModal() {
             this.produfarmacia = {
                 categoria: '',

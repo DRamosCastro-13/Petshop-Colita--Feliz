@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./assets/Logo veterinaria pet shop azul y blanco.png" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Colita Feliz - Home</title>
+</head>
+<body>
+    <header class="w-full grid sm:grid-cols-2 justify-center sm:align-middle align-middle px-2 bg-[#F94C10] min-h-fit border-b-2 border-slate-500/30">
+        <div class="grid justify-items-center mb-4 sm:justify-self-start pl-4 sm:mb-0">
+            <img class="w-[5rem] h-[5rem] md:w-[3rem] md:h-[3rem]" src="/assets/Logo veterinaria pet shop azul y blanco.png" alt="Logo">
+            <h2 class="text-xs font-semibold italic text-beige">Lo mejor para tu peludo</h2>
+        </div>
+        <nav class="grid grid-cols-1 sm:grid-cols-5 justify-items-center w-full sm:w-8/12 sm:justify-self-end gap-3 sm:gap-1 mb-3  text-beige font-semibold md:mb-0 sm:self-center">
+            <a href="/index.html" class="hover:text-blue">Inicio</a>
+            <a href="./farmacia.html" class="hover:text-blue">Farmacia</a>
+            <a href="./toys.html" class="hover:text-blue">Juguetería</a>
+            <a href="./contacto.html" class="hover:text-blue">Contacto</a>
+            <a href="#" class="hover:text-blue">Mi carrito</a>
+        </nav>
+        </div>
+    </header>
+    <div id="app" class="container mx-auto mt-10">
+        <div id="cart-app">
+        <div class="flex shadow-md my-10">
+            <div class="w-3/4 bg-gray-100 px-10 py-10">
+                <div class="flex justify-between border-b pb-8">
+                    <h1 class="font-semibold text-2xl">Carrito</h1>
+                    <h2 class="font-semibold text-2xl">Artículos</h2>
+                </div>
+                <div class="flex mt-10 mb-5">
+                    <h3 class="font-semibold text-gray-600 text-xs uppercase w-2/5">Detalles del producto</h3>
+                    <h3 class="font-semibold text-center text-gray-600 text-xs uppercase w-1/5">Cantidad</h3>
+                    <h3 class="font-semibold text-center text-gray-600 text-xs uppercase w-1/5">Precio</h3>
+                    <h3 class="font-semibold text-center text-gray-600 text-xs uppercase w-1/5">Total</h3>
+                </div>
+                <div v-if="carritoPrint.length>0" v-for="item in carritoPrint" :key="item._id" class="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5">
+                    <div class="flex w-2/5"> <!-- product -->
+                        <div class="w-20">
+                            <img class="h-24" :src="item.imagen" :alt="item.nombre">
+                        </div>
+                        <div class="flex flex-col justify-between ml-4 flex-grow">
+                            <span class="font-bold text-sm">{{ item.producto }}</span>
+                            <span class="text-red-500 text-xs">{{ item.marca }}</span>
+                            <a @click="removeItem(index)" class="font-semibold hover:text-red-500 text-gray-500 text-xs">Quitar</a>
+                        </div>
+                    </div>
+                    <span class="text-center w-1/5 font-semibold text-sm">1</span>
+                    <span class="text-center w-1/5 font-semibold text-sm">{{'$' + item.precio.toLocaleString() }}</span>
+                    <span class="text-center w-1/5 font-semibold text-sm">{{ '$' + item.precio.toLocaleString() }}</span>
+                </div>
+
+                <!-- Otras iteraciones para los demás productos -->
+
+                <a href="../index.html" class="flex font-semibold text-orange text-sm mt-10">
+                    <svg class="fill-current mr-2 text-orange w-4" viewBox="0 0 448 512">
+                        <path d="M134.059 296H436c6.627 0 12-5.373 12-12v-56c0-6.627-5.373-12-12-12H134.059v-46.059c0-21.382-25.851-32.09-40.971-16.971L7.029 239.029c-9.373 9.373-9.373 24.569 0 33.941l86.059 86.059c15.119 15.119 40.971 4.411 40.971-16.971V296z"/>
+                    </svg>
+                    Continuar comprando
+                </a>
+            </div>
+
+            <div id="summary" class="w-1/4 px-8 py-10 bg-gray-200">
+                <h1 class="font-semibold text-2xl border-b pb-8">Orden de compra</h1>
+                <div class="flex justify-between mt-10 mb-5">
+                    <!-- <span class="font-semibold text-sm uppercase">Artículos {{ totalItems }}</span>
+                    <span class="font-semibold text-sm">{{ formatCurrency(totalPrice) }}</span> -->
+                </div>
+                <div>
+                    <label class="font-medium inline-block mb-3 text-sm uppercase">Envío</label>
+                    <select class="block p-2 text-gray-600 w-full text-sm">
+                        <option>Precio del envío estándar - $10.00</option>
+                    </select>
+                </div>
+                <div class="py-10">
+                    <label for="promo" class="font-semibold inline-block mb-3 text-sm uppercase">Código promocional</label>
+                    <input type="text" id="promo" placeholder="Enter your code" class="p-2 text-sm w-full">
+                </div>
+                <button class="bg-orange hover:bg-red px-5 py-2 text-sm text-white uppercase">Aplicar</button>
+                <div class="border-t mt-8">
+                    <div class="flex font-semibold justify-between py-6 text-sm uppercase">
+                        <span>Precio final</span>
+                        <span>{{ total }}</span>
+                    </div>
+                    <button class="bg-orange font-semibold hover:bg-red py-3 text-sm text-white uppercase w-full">Completar compra</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+      </body>
+    <script type="module" src="./carrito.js"></script>
+    <script type="module" src="../assets/tailwind.config.extension.js"></script>
+    <script type="module" src="../assets/tailwind.config.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</body>
+</html>
