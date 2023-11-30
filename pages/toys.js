@@ -36,6 +36,7 @@ const optionsVue = {
                 this.id = this.petshop.map(petshop => petshop._id)
                 console.log('this.id', this.id)
                 this.estaEnCarrito = JSON.parse(localStorage.getItem('carrito')) || [];
+               
                 
             })
             .catch(error => console.log(error))

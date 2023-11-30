@@ -62,7 +62,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <h3 class="mb-2 text-xl font-bold text-beige">{{producto.producto}}</h3>
+                                <button @click="showModal(producto)" class="mb-2 text-xl font-bold text-beige">{{producto.producto}}</button>
                                 <p class="text-sm font-bold text-blue-300 line-clamp-3 text-white">
                                     {{producto.descripcion}}</p>
                             </a>
@@ -150,7 +150,7 @@
                                     class="mb-2 text-sm lg:text-base font-bold text-red-500">
                                     ¡Agotado!
                                 </div>
-                                <div v-else class="mb-2 text-sm lg:text-base font-bold text-white">
+                                <div v-else class="mb-2 text-sm lg:text-base font-bold text-blue">
                                     Cantidad Disponible: {{produfarmacia.disponibles}} unidades
                                 </div>
                                 <p class="text-xs lg:text-sm font-bold text-blue-300 text-blue">

@@ -34,6 +34,7 @@ const app = createApp({
                 ...product,
                 price: Number(product.precio),
                 quantity: 1}));
+                
 
                console.log(this.carritoPrint)
 
@@ -57,9 +58,11 @@ const app = createApp({
         return "$" + Number(value).toFixed(2);
 
       },
-      removeItem(index) {
-        this.estaEnCarrito.splice(index, 1);
-        this.carritoPrint = this.estaEnCarrito;
+      removeItem(id) {
+        if (this.estaEnCarrito.includes(id)) {
+            this.estaEnCarrito.splice(this.estaEnCarrito.indexOf(id), 1);
+            this.carritoPrint = this.data.filter(product => this.estaEnCarrito.includes(product._id));
+        }
       },
       addToCart(product) {
         const cart = this.getCart();
